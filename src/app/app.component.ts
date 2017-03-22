@@ -1,4 +1,4 @@
-import { BookService } from './services/book.service';
+
 import { HelpPage } from './../pages/help/help';
 import { Component,ViewChild } from '@angular/core';
 import { Platform,Nav } from 'ionic-angular';

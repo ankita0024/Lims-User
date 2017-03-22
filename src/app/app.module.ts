@@ -1,6 +1,5 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { BookService } from './services/book.service';
-import { NgModule, Component } from '@angular/core';
+import { Http } from '@angular/http';
+import { NgModule, ErrorHandler, Component } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {HelpPage} from '../pages/help/help';
@@ -12,6 +11,7 @@ import {AcknowledgementPage} from '../pages/acknowledgement/acknowledgement';
 import {RecommendationPage} from '../pages/recommendation/recommendation';
 import {WishListPage} from '../pages/wishList/wishList';
 import {FilterPage} from '../pages/filter/filter';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import {FilterPage} from '../pages/filter/filter';
 
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +45,6 @@ import {FilterPage} from '../pages/filter/filter';
     FilterPage
 
   ],
-  providers: [BookService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},]
 })
 export class AppModule {}
